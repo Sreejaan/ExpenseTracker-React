@@ -1,21 +1,28 @@
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 import './App.css'
 
 type Transactions = {
     id: number;
     amount: number;
     description:string;
-    type: 'Expense' | 'Income';
+    type: 'Expense' | 'Income'; 
 };
 
 function App() {
   
-  const [transactions, setTransactions] = useState<Transactions[]>([]);
+  const [transactions, setTransactions] = useState<Transactions[]>(() => {
+    const prev = localStorage.getItem('expense');
+    return prev ? JSON.parse(prev): [];
+  });
 
   const [amount, setAmount] = useState('');
   const [description, setDescription]= useState('');
   const [type, setType]= useState<'Expense' | 'Income'>('Expense');
   const [edit, setEdit] = useState<number | null>(null);
+
+  useEffect(()=>{
+    localStorage.setItem('expense', JSON.stringify(transactions));
+  }, [transactions]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -54,7 +61,7 @@ function App() {
 
   }
   return (
-    <div>
+    <div className='app-container' >
         <form onSubmit={handleSubmit}>
           <label>Expense</label>
           <input 
@@ -84,11 +91,14 @@ function App() {
       <ul>
       {transactions.map((transaction)=>(
           <div>
-          <li>{transaction.amount}</li>
+            <li className={transaction.type.toLowerCase()}>{transaction.type}</li>
+          <li>₹{transaction.amount} </li>
           <li>{transaction.description}</li>
-          <li>{transaction.type}</li>
-          <button onClick={()=>handleDelete(transaction.id)}>Delete</button>
-          <button onClick={()=>handleEdit(transaction)}>Edit</button>
+          
+          <div className="transaction-action">
+            <button className='delete' onClick={()=>handleDelete(transaction.id)}>Delete</button>
+            <button className='edit'onClick={()=>handleEdit(transaction)}>Edit</button>
+          </div>
           </div>
       ))}
       </ul>
