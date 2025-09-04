@@ -1,69 +1,40 @@
-# React + TypeScript + Vite
+# 💰 Expense Tracker [(React + TypeScript)](https://sreejaan.github.io/ExpenseTracker-React/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple Expense Tracker built with **React + TypeScript + Vite**.  
+This app allows users to add, edit, and delete income/expenses with persistent storage using **localStorage**.
+[Link](https://sreejaan.github.io/ExpenseTracker-React/)
+---
 
-Currently, two official plugins are available:
+## 🚀 Features
+- ➕ Add Income or Expense  
+- ✏️ Edit Existing Transactions  
+- ❌ Delete Transactions  
+- 💾 Persistent State (saved in localStorage)  
+- 📊 Track both Income & Expenses  
+- 🎨 Styled with custom CSS for a clean, responsive UI  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📸 Screenshots
+<img width="1240" height="862" alt="image" src="https://github.com/user-attachments/assets/cefa972b-be9d-49cd-9e36-65d8347bac30" />
+<img width="1151" height="811" alt="image" src="https://github.com/user-attachments/assets/69b0adfb-7e57-4767-b5b8-84c921a73fff" />
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🛠️ Installation & Setup
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Follow these steps to run the app locally:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+```bash
+# 1. Clone the repository
+git clone https://github.com/Sreejaan/ExpenseTracker-React.git
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# 2. Navigate to the project folder
+cd ExpenseTracker-React
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# 3. Install dependencies
+npm install
+
+# 4. Start the development server
+npm run dev
