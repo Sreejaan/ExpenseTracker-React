@@ -63,7 +63,7 @@ function App() {
   return (
     <div className='app-container' >
         <form onSubmit={handleSubmit}>
-          <label>Amount</label>
+          <label>Amount in Rupee's</label>
           <input 
             type='number'
             value = {amount}
