@@ -63,7 +63,7 @@ function App() {
   return (
     <div className='app-container' >
         <form onSubmit={handleSubmit}>
-          <label>Expense</label>
+          <label>Amount</label>
           <input 
             type='number'
             value = {amount}
